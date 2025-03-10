@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Visualizar Relatório</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Relatório de Horas</h1>
+    <div class="container">
+        <a href="{{ url_for('listar_relatorios') }}" class="voltar-link">Voltar para a Lista de Relatórios</a>
+
+        <div class="report-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>ID</th>
+                        <th>Início</th>
+                        <th>Fim</th>
+                        <th>Descrição</th>
+                        <th>Duração</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dia, pontos in relatorio.items() %}
+                        {% for ponto in pontos %}
+                            <tr>
+                                <td>{{ dia }}</td>
+                                <td>{{ ponto.id }}</td>
+                                <td>{{ ponto.inicio }}</td>
+                                <td>{{ ponto.fim }}</td>
+                                <td>{{ ponto.descricao }}</td>
+                                <td>{{ ponto.duracao }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <p class="total-time">Total: {{ horas }} horas, {{ minutos }} minutos, {{ segundos }} segundos</p>
+
+        <button onclick="window.print()" class="print-button">Imprimir Relatório</button>
+    </div>
+</body>
+</html>

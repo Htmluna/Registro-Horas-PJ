@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Pontos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Listar Pontos</h1>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="voltar-link">Voltar</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Início</th>
+                    <th>Fim</th>
+                    <th>Descrição</th>
+                    <th>Duração</th>  <!-- Adicionei a coluna Duração -->
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for registro in registros %}
+                <tr>
+                    <td>{{ registro['id'] }}</td>
+                    <td>{{ registro['data_hora_inicio'] }}</td>
+                    <td>{{ registro['data_hora_fim'] or 'Aberto' }}</td>
+                    <td>{{ registro['descricao'] or '' }}</td>
+                    <td>{{ registro['duracao'] }}</td>  <!-- Exibe a duração -->
+                    <td class="actions-column">
+                        <div class="description-form">
+                            <form action="{{ url_for('descrever_ponto', ponto_id=registro['id']) }}" method="post">
+                                <input type="text" name="descricao" placeholder="Descrição">
+                                <button type="submit" class="add-button">Adicionar</button>
+                            </form>
+                        </div>
+                        <div class="edit-delete-buttons">
+                            <a href="{{ url_for('editar_ponto', ponto_id=registro['id']) }}" class="edit-button">Editar</a>
+                            <form action="{{ url_for('excluir_ponto', ponto_id=registro['id']) }}" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este ponto?')">
+                                <button type="submit" class="delete-button">Excluir</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

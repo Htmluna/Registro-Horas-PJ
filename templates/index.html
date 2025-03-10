@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Controle de Horas PJ</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Controle de Horas PJ</h1>
+    <div class="container">
+
+        <div class="status-container">
+            {% if ultimo_ponto %}
+                <div class="status">
+                    {% if ultimo_ponto.data_hora_fim %}
+                        Último Ponto: Fechado em {{ ultimo_ponto.data_hora_fim }}
+                    {% else %}
+                        Último Ponto: Aberto desde {{ ultimo_ponto.data_hora_inicio }}
+                    {% endif %}
+                </div>
+            {% else %}
+                <div class="status">
+                    Nenhum ponto registrado ainda.
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="button-container">
+            <form action="{{ url_for('iniciar_ponto') }}" method="post">
+                <button type="submit" class="green-button">Iniciar Ponto</button>
+            </form>
+            <form action="{{ url_for('parar_ponto') }}" method="post">
+                <button type="submit" class="green-button">Parar Ponto</button>
+            </form>
+        </div>
+
+        <div class="link-container">
+            <a href="{{ url_for('listar_pontos') }}" class="button-link">Listar Pontos</a>
+            <a href="{{ url_for('relatorio_horas') }}" class="button-link">Gerar Relatório</a>
+            <a href="{{ url_for('listar_relatorios') }}" class="button-link">Visualizar Relatórios</a>
+        </div>
+
+        <form action="{{ url_for('zerar_historico') }}" method="post" onsubmit="return confirm('Tem certeza que deseja zerar o histórico de pontos? Esta ação é irreversível!')">
+            <button type="submit" class="delete-button">Zerar Histórico</button>
+        </form>
+    </div>
+</body>
+</html>

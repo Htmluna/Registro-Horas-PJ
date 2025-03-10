@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Ponto</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Editar Ponto</h1>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="voltar-link">Voltar</a>
+
+        <form action="{{ url_for('salvar_edicao_ponto', ponto_id=ponto.id) }}" method="post">
+            <label for="data_hora_inicio">Início:</label>
+            <input type="datetime-local" id="data_hora_inicio" name="data_hora_inicio" value="{{ ponto.data_hora_inicio_formatada }}" required><br><br>
+
+            <label for="data_hora_fim">Fim:</label>
+            <input type="datetime-local" id="data_hora_fim" name="data_hora_fim" value="{{ ponto.data_hora_fim_formatada or '' }}"><br><br>
+
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" name="descricao">{{ ponto.descricao or '' }}</textarea><br><br>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>

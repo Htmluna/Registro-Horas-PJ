@@ -1,0 +1,378 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    width: 80%;
+    background: white;
+    padding: 30px;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: #55555a;
+    margin-bottom: 30px; /* Aumentei a margem para separar mais do conteúdo */
+}
+
+/* Estilos para o container da mensagem de status (INDEX) */
+.status-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.status {
+    font-style: italic;
+    color: #555;
+}
+
+/* Estilos para o container dos botões Iniciar/Parar (INDEX) */
+.button-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os links Listar/Relatório (INDEX) */
+.link-container {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.button-link {
+    text-decoration: none;
+    color: white;
+    background-color: #007bff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.button-link:hover {
+    background-color: #0056b3;
+    text-decoration: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+input[type="text"],
+input[type="datetime-local"],
+textarea {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilos específicos para a coluna de ações na página de listagem */
+.actions-column {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Estilos para o formulário de descrição */
+.description-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.description-form form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.description-form input[type="text"] {
+    width: 150px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para alinhar os botões Editar e Excluir */
+.edit-delete-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Estilos específicos para o botão de Editar e Excluir */
+.edit-button,
+.delete-button
+    {
+        padding: 8px 0px;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        min-width: 93px;
+        text-align: center;
+        transition: background-color 0.3sease;
+        border: none;
+        cursor: pointer;
+    }
+
+.edit-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+/* Estilos específicos para o botão de Adicionar */
+.add-button {
+    padding: 10px 17px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+/* Estilos específicos para o botão Iniciar Ponto e Parar Ponto */
+.green-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+.green-button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para o link "Voltar" (canto superior esquerdo) */
+.voltar-link {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.voltar-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para o container do relatório (relatorio.html) */
+.report-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Estilos para a tabela do relatório */
+.report-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.report-container th, .report-container td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.report-container th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+.report-container td {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para o total de horas */
+.total-time {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para o botão de impressão */
+.print-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #17a2b8; /* Cor de fundo azul turquesa */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.print-button:hover {
+    background-color: #138496; /* Cor de fundo mais escura no hover */
+}
+
+/* Adicionei estilos de impressão */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .container, .container * {
+        visibility: visible;
+    }
+    .container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .voltar-link, .print-button {
+        display: none; /* Esconde o link "Voltar" e o botão de impressão na impressão */
+    }
+}
+
+/* Estilos para a tabela do relatório */
+.report-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.report-container th, .report-container td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.report-container th {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+}
+
+.report-container td {
+    background-color: #f9f9f9;
+}
+
+/* Estilos para o total de horas */
+.total-time {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Estilos para o botão de impressão */
+.print-button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #17a2b8; /* Cor de fundo azul turquesa */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin-top: 20px; /* Adicionei margem acima do botão */
+}
+
+.print-button:hover {
+    background-color: #138496; /* Cor de fundo mais escura no hover */
+}
+
+/* Adicionei estilos de impressão */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    .container, .container * {
+        visibility: visible;
+    }
+    .container {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .voltar-link, .print-button {
+        display: none; /* Esconde o link "Voltar" e o botão de impressão na impressão */
+    }
+}

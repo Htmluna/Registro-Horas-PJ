@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listar Relatórios</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Listar Relatórios</h1>
+    <div class="container">
+        <a href="{{ url_for('index') }}" class="voltar-link">Voltar</a>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Data de Geração</th>
+                    <th>Total</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for relatorio in relatorios %}
+                <tr>
+                    <td>{{ relatorio.id }}</td>
+                    <td>{{ relatorio.data_geracao }}</td>
+                    <td>{{ relatorio.total_horas }}h {{ relatorio.total_minutos }}m {{ relatorio.total_segundos }}s</td>
+                    <td>
+                        <a href="{{ url_for('visualizar_relatorio', relatorio_id=relatorio.id) }}">Visualizar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
